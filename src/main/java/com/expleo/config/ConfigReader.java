@@ -5,10 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * Handles the config.properties file
+ */
 public class ConfigReader {
 
     private static Properties properties;
-    private static String CONFIG_PATH="src/test/resources/config.properties";
+    private static String CONFIG_PATH="src/test/resources/secret.json";
 
     static {
         try {
