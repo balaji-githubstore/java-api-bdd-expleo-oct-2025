@@ -4,12 +4,16 @@ Feature: CreateRepository
   I want to create a remote repository
 
 # create repo
-  Scenario: Create valid remote repository
+  Scenario Outline: Create valid remote repository
     Given I am an authenticated github user
-    When I send a request to create a repository with name as "selenium-gitrepo" and with description "Contains selenium code"
-    Then the response code should be 200
-    And the response should contain the repository name "selenium-gitrepo"
-    And the response time should be less than 5000 milliseconds
+    When I send a request to create a repository with name as "<repo_name>" and with description "<repo_desc>"
+    Then the response code should be <expected_response_code>
+    And the response should contain the repository name "<repo_name>"
+    And the response time should be less than <expected_response_time> milliseconds
+    Examples:
+      | repo_name       | repo_desc                | expected_response_code | expected_response_time |
+      | selenium-repo   | contains selenium code   | 200                    | 5000                   |
+      | playwright-repo | contains playwright code | 200                    | 5000                   |
 
 
   Scenario: Create invalid remote repository
