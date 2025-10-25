@@ -1,5 +1,6 @@
 package com.expleo.steps;
 
+import com.expleo.config.ConfigReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,9 +10,14 @@ public class Demo1Steps {
     @Given("I am an authenticated github user")
     public void i_am_an_authenticated_github_user() {
         System.out.println("given");
+
     }
     @When("I send a request to create a repository with name as {string} and with description {string}")
     public void i_send_a_request_to_create_a_repository_with_name_as_and_with_description(String repoName, String description) {
+
+        String baseURI=ConfigReader.getBaseURI();
+        System.out.println(baseURI);
+
         System.out.println("when"+repoName+description);
     }
     @Then("the response code should be {int}")

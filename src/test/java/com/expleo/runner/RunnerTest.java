@@ -11,7 +11,7 @@ import io.cucumber.testng.CucumberOptions;
 //        ,publish = true
 //        ,plugin = {"pretty","html:target/cucumber-report.html","json:target/cucumber-report.json"}
 //        ,tags = "@regression or (not @valid and @smoke)"
-        ,tags = "@invalid"
+        ,tags = "@valid"
 )
 public class RunnerTest extends AbstractTestNGCucumberTests {
 
