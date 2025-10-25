@@ -30,4 +30,9 @@ public class Demo1Steps {
     public void the_response_time_should_be_less_than_milliseconds(Integer expectedResponseTime) {
         System.out.println("then"+expectedResponseTime);
     }
+
+    @When("I send a request to update a repository")
+    public void i_send_a_request_to_update_a_repository() {
+
+    }
 }
