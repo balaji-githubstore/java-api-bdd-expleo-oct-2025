@@ -25,8 +25,6 @@ public class Demo1Steps {
     public void the_response_code_should_be(Integer expectedStatusCode)
     {
         System.out.println("then "+expectedStatusCode);
-
-
     }
 
 
