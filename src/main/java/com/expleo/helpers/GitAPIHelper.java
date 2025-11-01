@@ -11,7 +11,7 @@ import org.assertj.core.api.BDDAssumptions;
 
 public class GitAPIHelper {
 
-    public static Response ListRepositoriesForAuthenticatedUser()
+    public static Response listRepositoriesForAuthenticatedUser()
     {
 
         Response response= RestAssured
@@ -23,7 +23,7 @@ public class GitAPIHelper {
         return response;
     }
 
-    public static Response CreateRepository(Repository repo)
+    public static Response createRepository(Repository repo)
     {
         return RestAssured
                 .given()
@@ -33,7 +33,7 @@ public class GitAPIHelper {
                 .post("/user/repos");
     }
 
-    public static Response DeleteRepository(String owner,String repositoryName)
+    public static Response deleteRepository(String owner,String repositoryName)
     {
         return RestAssured
                 .given()

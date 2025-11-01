@@ -16,7 +16,7 @@ public class TokenManager {
             {
                 file = new FileInputStream(TOKEN_PATH);
                 JsonPath jsonPath = new JsonPath(file);
-                token = jsonPath.get("token");
+                token = "Bearer "+jsonPath.get("token");
             }
         } catch (Exception e) {
             e.printStackTrace();

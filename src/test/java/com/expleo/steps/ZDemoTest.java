@@ -1,6 +1,8 @@
 package com.expleo.steps;
 
+import com.expleo.helpers.GitAPIHelper;
 import com.expleo.model.Repository;
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 
@@ -48,6 +50,14 @@ public class ZDemoTest {
 
         Repository repo4=Repository.builder().name("new-repo-api-automation").build();
 
+
+    }
+
+    @Test
+    public void listAllRepoForUserTest()
+    {
+       Response response= GitAPIHelper.listRepositoriesForAuthenticatedUser();
+       System.out.println(response.asString());
 
     }
 }

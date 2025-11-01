@@ -32,7 +32,6 @@ public class GitRequestSpecBuilder {
                 .addHeader("Authorization", TokenManager.getToken())
                 .log(LogDetail.ALL)
                 .build();
-
     }
 
 }

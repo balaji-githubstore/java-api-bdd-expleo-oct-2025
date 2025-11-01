@@ -11,7 +11,7 @@ import java.util.Properties;
 public class ConfigReader {
 
     private static Properties properties;
-    private static String CONFIG_PATH="src/test/resources/secret.json";
+    private static String CONFIG_PATH="src/test/resources/config.properties";
 
     static {
         try {
