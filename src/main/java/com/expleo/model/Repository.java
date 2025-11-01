@@ -1,7 +1,8 @@
 package com.expleo.model;
 
-import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonInclude;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,4 +26,6 @@ public class Repository {
     private Long id;
     private String name;
     private String full_name;
+    private String description;
+//    private boolean visib;
 }

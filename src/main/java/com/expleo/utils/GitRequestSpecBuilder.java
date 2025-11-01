@@ -33,5 +33,4 @@ public class GitRequestSpecBuilder {
                 .log(LogDetail.ALL)
                 .build();
     }
-
 }

@@ -35,6 +35,60 @@ paths:
                   $ref: '#/components/schemas/Repository'
         '401':
           description: Unauthorized
+    post:
+      summary: Create repositories for authenticated users
+      description: Returns created repositories of the authenticated users
+      security:
+        - tokenAuth: [ ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              additionalProperties: true
+              properties:
+                name:
+                  type: string
+                  example: my-new-repo
+                  description: Name of the repository.
+                description:
+                  type: string
+                private:
+                  type: boolean
+      responses:
+        '201':
+          description: Repository created successfully
+          content:
+            application/json:
+              example:
+                id: 123456
+                name: my-new-repo
+                full_name: balaji/my-new-repo
+                private: false
+                description: "This is my new repository."
+              schema:
+                $ref: '#/components/schemas/Repository'
+
+        '401':
+          description: Authentication failed or missing
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Authentication failed. Please provide a valid token."
+                  error_code:
+                    type: integer
+                    example: 401
+              example:
+                message: "Authentication failed. Please provide a valid token."
+                error_code: 401
+
 
 components:
   securitySchemes:

@@ -6,15 +6,14 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.assertj.core.api.BDDAssumptions;
 
-
+import java.util.List;
 
 
 public class GitAPIHelper {
 
-    public static Response listRepositoriesForAuthenticatedUser()
-    {
+    public static Response listRepositoriesForAuthenticatedUser() {
 
-        Response response= RestAssured
+        Response response = RestAssured
                 .given()
                 .spec(GitRequestSpecBuilder.getGitRequestSpec())
                 .when()
@@ -23,24 +22,32 @@ public class GitAPIHelper {
         return response;
     }
 
-    public static Response createRepository(Repository repo)
-    {
+    public static Response createRepository(Repository repo) {
         return RestAssured
                 .given()
-                .spec(GitRequestSpecBuilder.getGitRequestSpec())
+                .spec(GitRequestSpecBuilder.getGitRequestSpecWithoutValidation())
                 .body(repo)
                 .when()
                 .post("/user/repos");
     }
 
-    public static Response deleteRepository(String owner,String repositoryName)
-    {
+    public static Response deleteRepository(String owner, String repositoryName) {
         return RestAssured
                 .given()
-                .spec(GitRequestSpecBuilder.getGitRequestSpec())
-                .pathParams("owner",owner)
-                .pathParams("repo",repositoryName)
+                .spec(GitRequestSpecBuilder.getGitRequestSpecWithoutValidation())
+                .pathParams("owner", owner)
+                .pathParams("repo", repositoryName)
                 .when()
                 .delete("/repos/{owner}/{repo}");
     }
+
+    public static <T> T deserializeResponseToPojoClass(Response response, Class<T> classType) {
+        return response.as(classType);
+    }
+
+    public static <T> List<T> deserializeResponseToListOfPojoClass(Response response, Class<T> classType) {
+        return response.jsonPath().getList(".", classType);
+    }
+
+
 }
