@@ -1,3 +1,4 @@
+#This feature file helps to understand only the BDD concepts - no automation added
 @create  @regression
 Feature: CreateRepository
   In order to collaborate with project team and track the work

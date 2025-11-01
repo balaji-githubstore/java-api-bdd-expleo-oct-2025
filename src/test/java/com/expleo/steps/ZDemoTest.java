@@ -3,6 +3,7 @@ package com.expleo.steps;
 import com.expleo.model.Repository;
 import org.testng.annotations.Test;
 
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -33,15 +34,20 @@ public class ZDemoTest {
         //@Data
 
         //@Builder
-        Repository repo=Repository.builder().id(4L).name("jack").full_name("jack den").build();
+        Repository repo1=Repository.builder().id(4L).name("jack").full_name("jack den").build();
 
         //@AllArgsConstructor
-        Repository rep=new Repository(4L,"jack","jack den");
+        Repository rep2=new Repository(4L,"jack","jack den");
 
         //@NoArgsConstructor
-        Repository rep1=new Repository();
-        rep1.setId(4L);
-        rep1.setName("jack");
-        rep1.setFull_name("jack den");
+        Repository rep3=new Repository();
+        rep3.setId(4L);
+        rep3.setName("jack");
+        rep3.setFull_name("jack den");
+
+
+        Repository repo4=Repository.builder().name("new-repo-api-automation").build();
+
+
     }
 }
